@@ -7,9 +7,25 @@ let basket = [];
 
 function addItem(item) {
     basket.push( item ) // this adds a new item to the array
-     console.log('items in my basket');
      return true;
   }
 
+
  // console.log tests
- console.log('basket is empty')
+ console.log('adding apples', addItem('apples')); 
+ console.log('adding strawberries', addItem('strawberries')); // if correct it should be true
+console.log ('adding lettuce', addItem('lettuce'));
+// this is the listItems function
+
+function listItems() {
+    for (item of basket) {
+        console.log(item);
+    }
+}
+ 
+console.log('Items currently in my basket:');
+listItems();
+ 
+function empty() {
+    basket = [];
+}
