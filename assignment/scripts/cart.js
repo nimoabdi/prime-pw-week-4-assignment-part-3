@@ -4,12 +4,26 @@ console.log('***** Cart Functions *****');
 
 // created basket and added item function
 let basket = [];
+const maxItems = 5; // stretch goal start
+
+function isFull() {
+    if (basket.length < maxItems) {
+        return false;
+    } else {
+        return true;
+    }
+}
 
 console.log('basket')
 
 function addItem(item) {
-    basket.push( item ) // this adds a new item to the array
-     return true;
+    if (isFull() === true){
+    console.log('Your basket is full! ❌');
+    return false; 
+    } else {
+        basket.push( item ) // this adds a new item to the array
+        return true;
+    }
   }
 
  // console.log tests
@@ -31,6 +45,21 @@ console.log(`My basket has ${basket}`); // this is to see if the items got liste
 function empty() {
     basket = [];
 }
+
+function removeItem(item) {
+    for (let i = 0; i < basket.length; i++) {
+        if (basket.indexOf(item) === i) {
+            basket.splice(i, 0);
+            return item;
+        } else {
+            return null;
+        }
+    }
+}
+ 
+console.log(removeItem('apples'));
+console.log(removeItem('watermelon'));
+
 
 console.log('This will remove all the items in my basket', empty()); // this removes the items from the basket
 console.log(`Basket is now ${basket}`); // you check to see if the items in your basket were emptied
